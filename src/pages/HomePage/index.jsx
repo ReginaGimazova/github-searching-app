@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import MainTemplate from '../../templates/MainTemplate';
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core';
+import { connect } from 'react-redux';
+import MainTemplate from '../../templates/MainTemplate';
+import { receiveTopics } from '../../store/actions/receiveTopics';
 
 const theme = createMuiTheme({
     palette: {
@@ -11,16 +13,30 @@ const theme = createMuiTheme({
 });
 
 class HomePage extends Component {
+    componentDidMount(){
+        this.props.receiveTopics();
+        console.log(this.props.data);
+    }
     render() {
         return (
             <MuiThemeProvider theme={theme}>
-                <MainTemplate>
-                    <p>aaaaaa</p>
-                </MainTemplate>
+                <MainTemplate/>
             </MuiThemeProvider>
 
         );
     }
 }
+const mapStateToProps = state => ({
+    data: state.topics.data,
+});
 
-export default HomePage;
+const mapDispatchToProps = dispatch => ({
+    receiveTopics: () => {
+        dispatch(receiveTopics());
+    }
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(HomePage);
