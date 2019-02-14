@@ -1,0 +1,16 @@
+.main{
+    display: flex;
+    padding: 0 10%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+}
+
+@media all and (max-width: 600px){
+    .main{
+        padding: 0;
+    }
+}

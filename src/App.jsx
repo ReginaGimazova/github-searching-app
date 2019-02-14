@@ -3,6 +3,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import store from './store';
 import HomePage from './pages/HomePage';
+import TopicPage from './pages/TopicPage';
 
 class App extends Component {
   render() {
@@ -10,7 +11,8 @@ class App extends Component {
      <Provider store={store}>
          <BrowserRouter>
              <Switch>
-                 <Route path="/" component={HomePage} exact/>
+                 <Route path="/" component={HomePage} exact />
+                 <Route path="/:name" component={TopicPage} exact />
              </Switch>
          </BrowserRouter>
      </Provider>

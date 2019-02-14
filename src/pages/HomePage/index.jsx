@@ -1,28 +1,15 @@
 import React, {Component} from 'react';
-import {MuiThemeProvider, createMuiTheme} from '@material-ui/core';
 import { connect } from 'react-redux';
+import { receiveRepos } from '../../store/actions/receiveRepos';
 import MainTemplate from '../../templates/MainTemplate';
-import { receiveTopics } from '../../store/actions/receiveTopics';
-
-const theme = createMuiTheme({
-    palette: {
-        primary: {
-            main: '#24292E',
-        }
-    }
-});
+import TopicList from '../../organisms/TopicList';
 
 class HomePage extends Component {
-    componentDidMount(){
-        this.props.receiveTopics();
-        console.log(this.props.data);
-    }
     render() {
         return (
-            <MuiThemeProvider theme={theme}>
-                <MainTemplate/>
-            </MuiThemeProvider>
-
+            <MainTemplate>
+               <TopicList data={this.props.data} receiveRepos={this.props.receiveRepos}/>
+            </MainTemplate>
         );
     }
 }
@@ -31,12 +18,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    receiveTopics: () => {
-        dispatch(receiveTopics());
+    receiveRepos: topic => {
+        dispatch(receiveRepos(topic))
     }
 });
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps,
+    mapDispatchToProps
 )(HomePage);
