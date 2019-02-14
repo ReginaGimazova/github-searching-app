@@ -1,10 +1,10 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 import reposReducer from './reposReducer';
 import topicsReducer from './topicsReducer';
 
 const rootReducer = combineReducers({
-   repos: reposReducer,
-   topics: topicsReducer,
+  repos: reposReducer,
+  topics: topicsReducer,
 });
 
 export default rootReducer;

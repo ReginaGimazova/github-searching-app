@@ -1,4 +1,4 @@
-export const CHECK_INPUT = 'CHECK_INPUT';
+/* eslint-disable linebreak-style */
 export const GET_TOPICS_REQUEST = 'GET_TOPICS_REQUEST';
 export const GET_TOPICS_SUCCESS = 'GET_TOPICS_SUCCESS';
 export const GET_TOPICS_FAIL = 'GET_TOPICS_FAIL';

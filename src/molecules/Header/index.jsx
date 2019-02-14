@@ -1,12 +1,12 @@
 import React from 'react';
-import SearchInputContainer from '../../molecules/SearchInputContainer';
+import SearchInputContainer from '../SearchInputContainer';
 import style from './Header.module.css';
 
 const Header = () => (
-   <header style={style}>
-      <label>Github searching</label>
-      <SearchInputContainer/>
-   </header>
+  <header style={style}>
+    <h4>Github searching</h4>
+    <SearchInputContainer />
+  </header>
 );
 
 export default Header;

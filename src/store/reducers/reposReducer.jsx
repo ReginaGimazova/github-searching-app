@@ -1,4 +1,4 @@
-import {GET_REPOS_FAIL, GET_REPOS_REQUEST, GET_REPOS_SUCCESS} from "../actions/types";
+import { GET_REPOS_FAIL, GET_REPOS_REQUEST, GET_REPOS_SUCCESS } from '../actions/types';
 
 const initialState = {
   data: [],
@@ -6,26 +6,26 @@ const initialState = {
   isLoading: false,
 };
 
-const reposReducer = (state=initialState, action) => {
-  switch(action.type){
+const reposReducer = (state = initialState, action) => {
+  switch (action.type) {
     case GET_REPOS_REQUEST:
-      return{
+      return {
         ...state,
         isLoading: action.payload.isLoading,
         error: action.payload.error,
       };
     case GET_REPOS_SUCCESS:
-      return{
+      return {
         ...state,
         isLoading: action.payload.isLoading,
         error: action.payload.error,
         data: action.payload.data,
       };
     case GET_REPOS_FAIL:
-      return{
+      return {
         ...state,
         isLoading: action.payload.isLoading,
-        error: action.payload.error
+        error: action.payload.error,
       };
     default:
       return state;

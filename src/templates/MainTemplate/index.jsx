@@ -1,18 +1,18 @@
-import React, {Component} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Header from '../../molecules/Header';
 import styles from './MainTemplate.module.css';
 
-class MainTemplate extends Component {
-    render(){
-        return (
-            <div className={styles.container}>
-                <Header/>
-                <section className={styles.main}>
-                    {this.props.children}
-                </section>
-            </div>
-        )
-    }
-}
+const MainTemplate = ({ children }) => (
+  <div className={styles.container}>
+    <Header />
+    <section className={styles.main}>
+      {children}
+    </section>
+  </div>
+);
 
+MainTemplate.propTypes = {
+  children: PropTypes.element.isRequired,
+};
 export default MainTemplate;
